@@ -104,6 +104,7 @@ let g:ctrlp_tabpage_position = 'c'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_open_new_file = 't'
 let g:ctrlp_match_window = 'max:40'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " ------------- Key mappings ----------------
 " Map CTRL-E to open the in-editor file browser
