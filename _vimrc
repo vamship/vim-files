@@ -121,6 +121,10 @@ nmap <C-k> :m-2<CR>
 vmap <C-j> :m'>+<CR>gv=gv
 vmap <C-k> :m'<-2<CR>gv=gv
 
+" Use CTRL+s to save all tabs
+map <leader>w <ESC>:tabd w<CR>
+imap <leader>w <ESC>:tabd w<CR>
+
 " Line/selection up/down mappings for mac.
 "if has("mac") || has("macunix")
 "    nmap ∆ <M-j>
@@ -128,3 +132,4 @@ vmap <C-k> :m'<-2<CR>gv=gv
 "    vmap ∆ <M-j>
 "    vmap ˚ <M-k>
 "endif
+
