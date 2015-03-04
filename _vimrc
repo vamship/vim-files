@@ -136,19 +136,19 @@ vmap <C-k> :m'<-2<CR>gv=gv
 map <leader>w <ESC>:tabd w<CR>
 imap <leader>w <ESC>:tabd w<CR>
 
-" Use <leader>y and <leader>p to copy/paste to/from clipboard (mac only)
+" Use <leader>y and <leader>p to copy/paste to/from clipboard
 if g:current_os == "mac"
     map <leader>y :w !pbcopy<CR><CR>
-    imap <leader>y :w !pbcopy<CR><CR>
+    vmap <leader>y :w !pbcopy<CR><CR>
 
     map <leader>p :r !pbpaste<CR>
-    imap <leader>p :r !pbpaste<CR>
+    vmap <leader>p :r !pbpaste<CR>
 else
-    map <leader>y "*y<CR><CR>
-    imap <leader>y "*y<CR><CR>
+    map <leader>y "<S-8>yy
+    vmap <leader>y "<S-8>y
 
-    map <leader>p "*p<CR>
-    imap <leader>p "*p<CR>
+    map <leader>p "<S-8>p
+    vmap <leader>p "<S-8>p
 endif
 
 " Line/selection up/down mappings for mac.
