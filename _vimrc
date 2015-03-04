@@ -2,6 +2,17 @@
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
+" ------------- Detect OS -------------
+if has("win32")
+    let g:current_os = "win"
+else
+    if system('uname')=~'Darwin'
+        let g:current_os = "mac"
+    else
+        let g:current_os = "linux"
+    endif
+endif
+
 " ------------- General ----------------
 " Tab space : 4 Chars
 set ts=4
@@ -121,9 +132,24 @@ nmap <C-k> :m-2<CR>
 vmap <C-j> :m'>+<CR>gv=gv
 vmap <C-k> :m'<-2<CR>gv=gv
 
-" Use CTRL+s to save all tabs
+" Use <leader>w to save all tabs
 map <leader>w <ESC>:tabd w<CR>
 imap <leader>w <ESC>:tabd w<CR>
+
+" Use <leader>y and <leader>p to copy/paste to/from clipboard (mac only)
+if g:current_os == "mac"
+    map <leader>y :w !pbcopy<CR><CR>
+    imap <leader>y :w !pbcopy<CR><CR>
+
+    map <leader>p :r !pbpaste<CR>
+    imap <leader>p :r !pbpaste<CR>
+else
+    map <leader>y "*y<CR><CR>
+    imap <leader>y "*y<CR><CR>
+
+    map <leader>p "*p<CR>
+    imap <leader>p "*p<CR>
+endif
 
 " Line/selection up/down mappings for mac.
 "if has("mac") || has("macunix")
