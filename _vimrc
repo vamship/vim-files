@@ -38,7 +38,7 @@ set nowrap
 set linebreak
 
 " Allow general yy/p to use system clipboard in mac osx (macvim only)
-set clipboard=unnamed
+"set clipboard=unnamed
 
 " ------------- Theme ----------------
 " Set colorscheme
@@ -115,7 +115,7 @@ let g:ctrlp_tabpage_position = 'c'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_open_new_file = 't'
 let g:ctrlp_match_window = 'max:40'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|client\/lib'
 
 " ------------- Key mappings ----------------
 " Map CTRL-E to open the in-editor file browser
@@ -131,6 +131,9 @@ nmap <C-j> :m+<CR>
 nmap <C-k> :m-2<CR>
 vmap <C-j> :m'>+<CR>gv=gv
 vmap <C-k> :m'<-2<CR>gv=gv
+
+" Map <leader>s to search for word under cursor.
+vmap <leader>s y/<C-R>"<CR>
 
 " Use <leader>w to save all tabs
 map <leader>w <ESC>:tabd w<CR>
