@@ -93,21 +93,10 @@ syntax on
 set backupcopy=yes
 set nowritebackup
 
-" ------------- XPTemplate Settings ----------------
-" avoid key conflict
-"let g:SuperTabMappingForward = '<Plug>supertabKey'
-"
-"" if nothing matched in xpt, try supertab
-"let g:xptemplate_fallback = '<Plug>supertabKey'
-"
-"" xpt uses <Tab> as trigger key
-"let g:xptemplate_key = '<Tab>'
-"
-"" use <tab>/<S-tab> to navigate through pum. Optional
-"let g:xptemplate_pum_tab_nav = 1
-
-" xpt triggers only when you typed whole name of a snippet. Optional
-"let g:xptemplate_minimal_prefix = 'full'
+" ------------- Ultisnips Settings ----------------
+let g:UltiSnipsExpandTrigger="<tab>"                                            
+let g:UltiSnipsJumpForwardTrigger="<tab>"                                       
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"  
 
 " ------------- Ctrl-P Settings ----------------
 let g:ctrlp_switch_buffer = 'E'
