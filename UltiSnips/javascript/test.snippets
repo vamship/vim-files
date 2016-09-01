@@ -1,0 +1,145 @@
+# -----------------------------------------------------------------------------
+
+snippet testjs "Javascript test file"
+/* jshint node:true, expr:true */
+'use strict';
+
+const _sinon = require('sinon');
+const _chai = require('chai');
+_chai.use(require('sinon-chai'));
+_chai.use(require('chai-as-promised'));
+const expect = _chai.expect;
+
+const ${1:<test target>} = require('${2:<module path>}');
+
+describe('$1', () => {
+
+    describe('ctor()', () => {
+        $0
+    });
+});
+endsnippet
+# -----------------------------------------------------------------------------
+
+snippet testdesc "Describe section for tests"
+describe('${1:<suite name>}', () => {
+    $0
+});
+endsnippet
+# -----------------------------------------------------------------------------
+
+snippet testit "It section for tests"
+it('should ${1:<test description>}', () => {
+    $0
+});
+endsnippet
+# -----------------------------------------------------------------------------
+
+snippet teststr "Test for string argument"
+
+it('should throw an error if invoked without a valid ${1:<param description>}', () => {
+    const error = '${2:<error message>}';
+    function invoke(${3:<param name>}) {
+        return () => {
+            $0
+        };
+    }
+
+    expect(invoke(undefined)).to.throw(error);
+    expect(invoke(null)).to.throw(error);
+    expect(invoke(123)).to.throw(error);
+    expect(invoke('')).to.throw(error);
+    expect(invoke(true)).to.throw(error);
+    expect(invoke([])).to.throw(error);
+    expect(invoke({})).to.throw(error);
+    expect(invoke(() => {})).to.throw(error);
+});
+endsnippet
+# -----------------------------------------------------------------------------
+
+snippet testnum "Test for number argument"
+
+it('should throw an error if invoked without a valid ${1:<param description>}', () => {
+    const error = '${2:<error message>}';
+    function invoke(${3:<param name>}) {
+        return () => {
+            $0
+        };
+    }
+
+    expect(invoke(undefined)).to.throw(error);
+    expect(invoke(null)).to.throw(error);
+    expect(invoke(0)).to.throw(error);
+    expect(invoke(-1)).to.throw(error);
+    expect(invoke('abc')).to.throw(error);
+    expect(invoke(true)).to.throw(error);
+    expect(invoke([])).to.throw(error);
+    expect(invoke({})).to.throw(error);
+    expect(invoke(() => {})).to.throw(error);
+});
+endsnippet
+# -----------------------------------------------------------------------------
+
+snippet testobj "Test for object argument"
+
+it('should throw an error if invoked without a valid ${1:<param description>}', () => {
+    const error = '${2:<error message>}';
+    function invoke(${3:<param name>}) {
+        return () => {
+            $0
+        };
+    }
+
+    expect(invoke(undefined)).to.throw(error);
+    expect(invoke(null)).to.throw(error);
+    expect(invoke(0)).to.throw(error);
+    expect(invoke(-1)).to.throw(error);
+    expect(invoke('abc')).to.throw(error);
+    expect(invoke(true)).to.throw(error);
+    expect(invoke([])).to.throw(error);
+    expect(invoke(() => {})).to.throw(error);
+});
+endsnippet
+# -----------------------------------------------------------------------------
+
+snippet testarr "Test for array argument"
+
+it('should throw an error if invoked without a valid ${1:<param description>}', () => {
+    const error = '${2:<error message>}';
+    function invoke(${3:<param name>}) {
+        return () => {
+            $0
+        };
+    }
+
+    expect(invoke(undefined)).to.throw(error);
+    expect(invoke(null)).to.throw(error);
+    expect(invoke(123)).to.throw(error);
+    expect(invoke('abc')).to.throw(error);
+    expect(invoke(true)).to.throw(error);
+    expect(invoke({})).to.throw(error);
+    expect(invoke(() => {})).to.throw(error);
+});
+endsnippet
+# -----------------------------------------------------------------------------
+
+snippet testfunc "Test for function argument"
+
+it('should throw an error if invoked without a valid ${1:<param description>}', () => {
+    const error = '${2:<error message>}';
+    function invoke(${3:<param name>}) {
+        return () => {
+            $0
+        };
+    }
+
+    expect(invoke(undefined)).to.throw(error);
+    expect(invoke(null)).to.throw(error);
+    expect(invoke(123)).to.throw(error);
+    expect(invoke('abc')).to.throw(error);
+    expect(invoke(true)).to.throw(error);
+    expect(invoke({})).to.throw(error);
+    expect(invoke([])).to.throw(error);
+});
+endsnippet
+# -----------------------------------------------------------------------------

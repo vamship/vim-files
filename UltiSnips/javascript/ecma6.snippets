@@ -1,44 +1,62 @@
 # -----------------------------------------------------------------------------
+global !p
+import re
+def args_from_docs(args):
+    argNames = re.findall(r'.*@param\s+{[^}]*}\s+([^\s]*)\s+.*', args)
+    result = ', '.join(argNames)
+    return result
+endglobal
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+
+snippet lint "JS Lint header for javascript files"
+/* jshint node:${1:true} $2*/$0
+endsnippet
+# -----------------------------------------------------------------------------
+
+snippet req "Require statement for nodejs files"
+const ${1:<module name>} = require('${2:<module path>}')$0;
+endsnippet
+# -----------------------------------------------------------------------------
 
 snippet nodejs "Nodejs file header"
-/* jshint node:true */
+/* jshint $1 */
 'use strict';
 
 $0
 endsnippet
 # -----------------------------------------------------------------------------
 
-snippet foreach "forEach loop on an array" 
+snippet foreach "forEach loop on an array"
 ${1:<array>}.forEach((item, index) => {
-	$0
+    $0
 });
 endsnippet
 # -----------------------------------------------------------------------------
 
-snippet filter "filter elements in an array" 
-${1:<array>}.filter((item, index) => {
-	$0
+snippet filter "filter elements in an array"
+${1:<array>}.filter((${2:item}, index) => {
+    $2$0
 });
 endsnippet
 # -----------------------------------------------------------------------------
 
 snippet props "Loop through all properties of an object"
-for(let prop in ${1:<object>}) {
-	const value = $1[prop];
-	$0
+for(let ${1:prop} in ${2:<object>}) {
+    const ${3:value} = $2[$1];
+    $0
 }
 endsnippet
 # -----------------------------------------------------------------------------
 
-snippet arrow "Arrow function" 
-(${1:<arg1>}, ${2:<arg2>}) => {
-	$0
-}
+snippet => "Arrow function"
+=> {
+    $0
+}${1:);}
 endsnippet
 # -----------------------------------------------------------------------------
 
 snippet class "Class with no inheritance"
-/* jshint node:true */
 'use strict';
 
 /**
@@ -46,95 +64,155 @@ snippet class "Class with no inheritance"
  */
 class ${1:<class name>} {
     /**
-     * @param {${3:type}} ${4:<param1>} ${5:<description>}
-     * @param {${6:type}} ${7:<param1>} ${8:<description>}
-     * @param {${9:type}} ${10:<param1>} ${11:<description>}
+     * ${3:<params>}
      */
-    constructor($4, $7, $10) {
-        super();
+    constructor(`!p snip.rv = args_from_docs(t[3])`) {
+        $0
     }
-
-	$0
 }
 
-module.exports=$1;
+module.exports = $1;
 endsnippet
 # -----------------------------------------------------------------------------
 
 snippet cclass "Child class that extends an existing class"
-/* jshint node:true */
 'use strict';
 
-const $2 = require('${3:<path to base class>}');
+const $3 = require('${4:<path to base class>}');
 
 /**
- * ${4:<class description>}
+ * ${2:<class description>}
  *
- * @extends {$2}
+ * @extends {$3}
  */
-class ${1:<class name>} extends ${2:<base class>} {
+class ${1:<class name>} extends ${3:<base class>} {
     /**
-     * @param {${5:type}} ${6:<param1>} ${7:<description>}
-     * @param {${8:type}} ${9:<param2>} ${10:<description>}
-     * @param {${11:type}} ${12:<param3>} ${13:<description>}
+     * ${5:<params>}
      */
-    constructor($6, $9, $12) {
-        super();
+    constructor(`!p snip.rv = args_from_docs(t[5])`) {
+        $0
     }
-
-	$0
 }
 
-module.exports=$1;
+module.exports = $1;
 endsnippet
 # -----------------------------------------------------------------------------
 
 snippet module "Basic javascript module"
-/* jshint node:true */
 'use strict';
 
 /**
  * ${2:<module description>}
  */
 const ${1:<module name>} = {
-	$0
+    $0
 }
 
-module.exports=$1;
+module.exports = $1;
+endsnippet
+# -----------------------------------------------------------------------------
+
+snippet @p "Function parameter documentation"
+@param {${1:<param type>}} ${2:<param name>} ${0:<param description>}
+endsnippet
+# -----------------------------------------------------------------------------
+
+snippet @r "Function return value documentation"
+@return {${1:<return type>}} ${2:<return description>}$0
+endsnippet
+# -----------------------------------------------------------------------------
+
+snippet cget "Javascript get property" b
+
+/**
+ * ${2:<property description>}
+ *
+ * ${3:<return>}
+ */
+get ${1:<property name>}() {
+    return $4;$0
+}
+endsnippet
+# -----------------------------------------------------------------------------
+
+snippet cfunc "Javascript class function" b
+
+/**
+ * ${2:<function description>}
+ *
+ * ${3:<params>}
+ */
+${1:<function name>}(`!p snip.rv = args_from_docs(t[3])`) {
+    $0
+}
+endsnippet
+# -----------------------------------------------------------------------------
+
+snippet mfunc "Javascript module function"
+
+
+/**
+ * ${2:<function description>}
+ *
+ * ${3:<params>}
+ */
+${1:<function name>}: function(`!p snip.rv = args_from_docs(t[3])`) {
+    $0
+}
+endsnippet
+# -----------------------------------------------------------------------------
+
+snippet func "Javascript function"
+
+/**
+ * ${2:<function description>}
+ *
+ * ${3:<params>}
+ */
+function ${1:<function name>}(`!p snip.rv = args_from_docs(t[3])`) {
+    $0
+}
 endsnippet
 # -----------------------------------------------------------------------------
 
 snippet argstr "Argument validation for non empty string arg"
 if(typeof ${1:<arg>} !== 'string' || $1.length <= 0) {
-	throw new Error('Invalid ${2:<arg name>} specified (arg #${3:<arg number>})');
+    throw new Error('Invalid ${2:<arg name>} specified (arg #${3:<arg number>})');
 }
 endsnippet
 # -----------------------------------------------------------------------------
 
 snippet argnum "Argument validation for positive, non zero number arg"
 if(typeof ${1:<arg>} !== 'number' || $1 <= 0) {
-	throw new Error('Invalid ${2:<arg name>} specified (arg #${3:<arg number>})');
+    throw new Error('Invalid ${2:<arg name>} specified (arg #${3:<arg number>})');
 }
 endsnippet
 # -----------------------------------------------------------------------------
 
 snippet argobj "Argument validation for an object arg"
-if(!${1:<arg>} || !($1 instanceof Array) || typeof $1 !== 'object') {
-	throw new Error('Invalid ${2:<arg name>} specified (arg #${3:<arg number>})');
+if(!${1:<arg>} || ($1 instanceof Array) || typeof $1 !== 'object') {
+    throw new Error('Invalid ${2:<arg name>} specified (arg #${3:<arg number>})');
 }
 endsnippet
 # -----------------------------------------------------------------------------
 
 snippet argarr "Argument validation for an array arg"
 if(!(${1:<arg>} instanceof Array)) {
-	throw new Error('Invalid ${2:<arg name>} specified (arg #${3:<arg number>})');
+    throw new Error('Invalid ${2:<arg name>} specified (arg #${3:<arg number>})');
+}
+endsnippet
+# -----------------------------------------------------------------------------
+
+snippet argfunc "Argument validation for a function arg"
+if(typeof ${1:<arg>} !== 'function') {
+    throw new Error('Invalid ${2:<arg name>} specified (arg #${3:<arg number>})');
 }
 endsnippet
 # -----------------------------------------------------------------------------
 
 snippet promise "Basic promise wrapper"
 const promise = new Promise((reject, resolve) => {
-	$0
+    $0
 });
 endsnippet
 # -----------------------------------------------------------------------------

@@ -1,0 +1,60 @@
+# -----------------------------------------------------------------------------
+global !p
+import re
+def required_from_properties(args):
+    argNames = re.findall(r'\s*("[^"]*")\s*:\s{.*', args)
+    result = ', '.join(argNames)
+    return result
+endglobal
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+
+snippet schstr "Schema specification for a string property"
+"${1:<property>}": { "type": "string", "minLength": ${2:1} }$0
+endsnippet
+# -----------------------------------------------------------------------------
+
+snippet schnum "Schema specification for a number property"
+"${1:<property>}": { "type": "number", "minimum": ${2:1} }$0
+endsnippet
+# -----------------------------------------------------------------------------
+
+snippet schbool "Schema specification for a boolean property"
+"${1:<property>}": { "type": "boolean" }$0
+endsnippet
+# -----------------------------------------------------------------------------
+
+snippet schobj "Schema specification for an object property"
+"${1:<property>}": {
+	"type": "object",
+	"properties": {
+		${2:<properties>}
+	}
+	"required": [`!p snip.rv=required_from_properties(t[2])`]$0
+}$0
+endsnippet
+# -----------------------------------------------------------------------------
+
+snippet scharr "Schema specification for an array property of simple types"
+"${1:<property>}": {
+	"type": "array",
+	"items": {
+		"type": "${2:<type>}"
+	}
+}$0
+endsnippet
+# -----------------------------------------------------------------------------
+
+snippet scharro "Schema specification for an array property of object types"
+"${1:<property>}": {
+	"type": "array",
+	"items": {
+		"type": "object",
+		"properties": {
+			${2:<properties>}
+		}
+		"required": [`!p snip.rv=required_from_properties(t[2])`]$0
+	}
+}$0
+endsnippet
+# -----------------------------------------------------------------------------
