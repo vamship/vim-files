@@ -36,110 +36,71 @@ endsnippet
 # -----------------------------------------------------------------------------
 
 snippet teststr "Test for string argument"
-
 it('should throw an error if invoked without a valid ${1:<param description>}', () => {
-    const error = '${2:<error message>}';
-    function invoke(${3:<param name>}) {
-        return () => {
+    const error = 'Invalid ${2:<property name>} specified (arg #${3:<arg number>})';
+    _testValueProvider.allButString(${4:''}).forEach(($2) => {
+        const wrapper = () => {
             $0
         };
-    }
 
-    expect(invoke(undefined)).to.throw(error);
-    expect(invoke(null)).to.throw(error);
-    expect(invoke(123)).to.throw(error);
-    expect(invoke('')).to.throw(error);
-    expect(invoke(true)).to.throw(error);
-    expect(invoke([])).to.throw(error);
-    expect(invoke({})).to.throw(error);
-    expect(invoke(() => {})).to.throw(error);
+        expect(wrapper).to.throw(error);
+    });
 });
 endsnippet
 # -----------------------------------------------------------------------------
 
 snippet testnum "Test for number argument"
-
 it('should throw an error if invoked without a valid ${1:<param description>}', () => {
-    const error = '${2:<error message>}';
-    function invoke(${3:<param name>}) {
-        return () => {
+    const error = 'Invalid ${2:<property name>} specified (arg #${3:<arg number>})';
+    _testValueProvider.allButNumber(${4:-1}).forEach(($2) => {
+        const wrapper = () => {
             $0
         };
-    }
 
-    expect(invoke(undefined)).to.throw(error);
-    expect(invoke(null)).to.throw(error);
-    expect(invoke(0)).to.throw(error);
-    expect(invoke(-1)).to.throw(error);
-    expect(invoke('abc')).to.throw(error);
-    expect(invoke(true)).to.throw(error);
-    expect(invoke([])).to.throw(error);
-    expect(invoke({})).to.throw(error);
-    expect(invoke(() => {})).to.throw(error);
+        expect(wrapper).to.throw(error);
+    });
 });
 endsnippet
 # -----------------------------------------------------------------------------
 
 snippet testobj "Test for object argument"
-
 it('should throw an error if invoked without a valid ${1:<param description>}', () => {
-    const error = '${2:<error message>}';
-    function invoke(${3:<param name>}) {
-        return () => {
+    const error = 'Invalid ${2:<property name>} specified (arg #${3:<arg number>})';
+    _testValueProvider.allButObject().forEach(($2) => {
+        const wrapper = () => {
             $0
         };
-    }
 
-    expect(invoke(undefined)).to.throw(error);
-    expect(invoke(null)).to.throw(error);
-    expect(invoke(0)).to.throw(error);
-    expect(invoke(-1)).to.throw(error);
-    expect(invoke('abc')).to.throw(error);
-    expect(invoke(true)).to.throw(error);
-    expect(invoke([])).to.throw(error);
-    expect(invoke(() => {})).to.throw(error);
+        expect(wrapper).to.throw(error);
+    });
 });
 endsnippet
 # -----------------------------------------------------------------------------
 
 snippet testarr "Test for array argument"
-
 it('should throw an error if invoked without a valid ${1:<param description>}', () => {
-    const error = '${2:<error message>}';
-    function invoke(${3:<param name>}) {
-        return () => {
+    const error = 'Invalid ${2:<property name>} specified (arg #${3:<arg number>})';
+    _testValueProvider.allButArray().forEach(($2) => {
+        const wrapper = () => {
             $0
         };
-    }
 
-    expect(invoke(undefined)).to.throw(error);
-    expect(invoke(null)).to.throw(error);
-    expect(invoke(123)).to.throw(error);
-    expect(invoke('abc')).to.throw(error);
-    expect(invoke(true)).to.throw(error);
-    expect(invoke({})).to.throw(error);
-    expect(invoke(() => {})).to.throw(error);
+        expect(wrapper).to.throw(error);
+    });
 });
 endsnippet
 # -----------------------------------------------------------------------------
 
 snippet testfunc "Test for function argument"
-
 it('should throw an error if invoked without a valid ${1:<param description>}', () => {
-    const error = '${2:<error message>}';
-    function invoke(${3:<param name>}) {
-        return () => {
+    const error = 'Invalid ${2:<property name>} specified (arg #${3:<arg number>})';
+    _testValueProvider.allButFunction().forEach(($2) => {
+        const wrapper = () => {
             $0
         };
-    }
 
-    expect(invoke(undefined)).to.throw(error);
-    expect(invoke(null)).to.throw(error);
-    expect(invoke(123)).to.throw(error);
-    expect(invoke('abc')).to.throw(error);
-    expect(invoke(true)).to.throw(error);
-    expect(invoke({})).to.throw(error);
-    expect(invoke([])).to.throw(error);
+        expect(wrapper).to.throw(error);
+    });
 });
 endsnippet
 # -----------------------------------------------------------------------------
