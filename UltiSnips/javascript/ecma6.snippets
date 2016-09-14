@@ -2,7 +2,7 @@
 global !p
 import re
 def args_from_docs(args):
-    argNames = re.findall(r'.*@param\s+{[^}]*}\s+([^\s]*)\s+.*', args)
+    argNames = re.findall(r'.*@param\s+{[^}]*}\s+\[{0,1}([a-zA-Z0-9]*).*\]{0,1}\s+.*', args)
     result = ', '.join(argNames)
     return result
 endglobal
@@ -123,7 +123,6 @@ endsnippet
 # -----------------------------------------------------------------------------
 
 snippet cget "Javascript get property" b
-
 /**
  * ${2:<property description>}
  *
@@ -136,7 +135,6 @@ endsnippet
 # -----------------------------------------------------------------------------
 
 snippet cfunc "Javascript class function" b
-
 /**
  * ${2:<function description>}
  *
@@ -149,8 +147,6 @@ endsnippet
 # -----------------------------------------------------------------------------
 
 snippet mfunc "Javascript module function"
-
-
 /**
  * ${2:<function description>}
  *
@@ -163,7 +159,6 @@ endsnippet
 # -----------------------------------------------------------------------------
 
 snippet func "Javascript function"
-
 /**
  * ${2:<function description>}
  *
