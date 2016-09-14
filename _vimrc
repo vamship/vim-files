@@ -106,6 +106,9 @@ let g:ctrlp_open_new_file = 't'
 let g:ctrlp_match_window = 'max:40'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
+" ------------- vim-jsx Settings ----------------
+let g:jsx_ext_required = 0
+
 " ------------- Key mappings ----------------
 " Map CTRL-E to open the in-editor file browser
 map <C-E> :NERDTree<CR>
