@@ -114,9 +114,12 @@ let g:jsx_ext_required = 0
 
 " ------------- syntastic Settings ----------------
 let g:syntastic_javascript_checkers = ['eslint']
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+let g:syntastic_javascript_eslint_exec = 'eslint_d'
+
+" For more ignore options, see:
+"  - https://github.com/vim-syntastic/syntastic/wiki/HTML:---tidy#checker-options
+"  -http://stackoverflow.com/questions/32669248/disable-syntasic-html-tidy-checker-for-a-file
+let g:syntastic_html_tidy_ignore_errors=['<link> proprietary attribute "sizes"']
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
