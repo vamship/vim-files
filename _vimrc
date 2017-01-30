@@ -127,9 +127,9 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " ------------- Key mappings ----------------
-" Map CTRL-E to open the in-editor file browser
-map <C-E> :NERDTree<CR>
-map <C-P> :CtrlP<CR>
+" Map CTRL+e to open the in-editor file browser
+map <C-e> <ESC>:NERDTree<CR>
+map <C-p> <ESC>:CtrlP<CR>
 
 " Switch tabs using CTRL-l or CTRL-h
 map <C-l> gt
@@ -140,6 +140,9 @@ nmap <C-j> :m+<CR>
 nmap <C-k> :m-2<CR>
 vmap <C-j> :m'>+<CR>gv=gv
 vmap <C-k> :m'<-2<CR>gv=gv
+
+" Map CTRL+n to jump to next item in list (used to nav through syntax errors)
+map <C-n> <ESC>:lnext<CR>
 
 " Map <leader>s to search for word under cursor.
 vmap <leader>s y/<C-R>"<CR>
