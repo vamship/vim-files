@@ -1,0 +1,44 @@
+# -----------------------------------------------------------------------------
+global !p
+import re
+def props_from_args(args, leadChar):
+    argNames = re.findall(r'\s*([^}]*)\s*', args)
+    def prop_declaration(prop):
+        prop = prop.strip()
+        prop = prop.split('=')[0]
+        if prop.startswith('is'):
+            return prop + ': PropTypes.bool.isRequired'
+        elif prop.startswith('on'):
+            return prop + ': PropTypes.func.isRequired'
+        elif 'count' in prop.lower():
+            return prop + ': PropTypes.number.isRequired'
+        else:
+            return prop + ': PropTypes.string.isRequired'
+
+    if len(argNames) > 0:
+        tokens = argNames[0].split(',')
+        props = map(prop_declaration, tokens)
+        return (',\n' + leadChar).join(props)
+    return args
+endglobal
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+
+snippet funcc "React JS functional component"
+'use strict';
+
+import React, { PropTypes } from 'react';
+
+const ${1:<component>} = ({ ${2:<component props>} }) => {
+    return (
+        ${3:<jsx>}
+    );
+};
+
+$1.propTypes = {
+    `!p snip.rv = props_from_args(t[2], '\t')`
+};
+
+export default $1;
+endsnippet
+# -----------------------------------------------------------------------------

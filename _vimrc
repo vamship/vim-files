@@ -1,5 +1,6 @@
 " Load and init pathogen.
 runtime bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#helptags()
 call pathogen#infect()
 
 " ------------- Detect OS -------------

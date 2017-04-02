@@ -19,6 +19,16 @@ const ${1:<module name>} = require('${2:<module path>}')$0;
 endsnippet
 # -----------------------------------------------------------------------------
 
+snippet imp "Import statement for importing default javascript modules"
+import { ${1:<member list>} } from '${2:<module>}';$0
+endsnippet
+# -----------------------------------------------------------------------------
+
+snippet impd "Import statement for importing default javascript modules"
+import ${1:<member>} from '${2:<module>}';$0
+endsnippet
+# -----------------------------------------------------------------------------
+
 snippet nodejs "Nodejs file header"
 /* jshint $1 */
 'use strict';
