@@ -182,35 +182,35 @@ endsnippet
 
 snippet argstr "Argument validation for non empty string arg"
 if(typeof ${1:<arg>} !== 'string' || $1.length <= 0) {
-    throw new Error('Invalid ${2:<arg name>} specified (arg #${3:<arg number>})');
+    throw new Error('Invalid ${2:$1} specified (arg #${3:1})');
 }
 endsnippet
 # -----------------------------------------------------------------------------
 
 snippet argnum "Argument validation for positive, non zero number arg"
 if(typeof ${1:<arg>} !== 'number' || $1 <= 0) {
-    throw new Error('Invalid ${2:<arg name>} specified (arg #${3:<arg number>})');
+    throw new Error('Invalid ${2:$1} specified (arg #${3:1})');
 }
 endsnippet
 # -----------------------------------------------------------------------------
 
 snippet argobj "Argument validation for an object arg"
 if(!${1:<arg>} || ($1 instanceof Array) || typeof $1 !== 'object') {
-    throw new Error('Invalid ${2:<arg name>} specified (arg #${3:<arg number>})');
+    throw new Error('Invalid ${2:$1} specified (arg #${3:1})');
 }
 endsnippet
 # -----------------------------------------------------------------------------
 
 snippet argarr "Argument validation for an array arg"
 if(!(${1:<arg>} instanceof Array)) {
-    throw new Error('Invalid ${2:<arg name>} specified (arg #${3:<arg number>})');
+    throw new Error('Invalid ${2:$1} specified (arg #${3:1})');
 }
 endsnippet
 # -----------------------------------------------------------------------------
 
 snippet argfunc "Argument validation for a function arg"
 if(typeof ${1:<arg>} !== 'function') {
-    throw new Error('Invalid ${2:<arg name>} specified (arg #${3:<arg number>})');
+    throw new Error('Invalid ${2:$1} specified (arg #${3:1})');
 }
 endsnippet
 # -----------------------------------------------------------------------------
