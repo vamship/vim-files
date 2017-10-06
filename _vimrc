@@ -127,6 +127,10 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" ------------- indentLine Settings ----------------
+let g:indentLine_enabled = 0
+let g:indentLine_char = '│'
+
 " ------------- Key mappings ----------------
 " Map CTRL+e to open the in-editor file browser
 map <C-e> <ESC>:NERDTree<CR>
