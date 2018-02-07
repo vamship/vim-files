@@ -16,7 +16,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'SirVer/ultisnips'
 
     Plug 'airblade/vim-gitgutter'
-    Plug 'sbdchd/neoformat'
+    Plug 'sbdchd/neoformat', { 'on': 'NeoFormat' }
     Plug 'scrooloose/syntastic'
 
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
