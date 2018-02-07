@@ -107,6 +107,9 @@ filetype indent plugin on
 set backupcopy=yes
 set nowritebackup
 
+" ------------- vim-javascript Settings ----------------
+let g:javascript_plugin_jsdoc=1 "Required for jsdoc syntax highlighting
+
 " ------------- ultisnips Settings ----------------
 let g:UltiSnipsExpandTrigger="<tab>"                                            
 let g:UltiSnipsJumpForwardTrigger="<tab>"                                       
