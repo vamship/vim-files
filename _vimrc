@@ -1,6 +1,7 @@
 " Load and init vim-plug.
 runtime plugged/plug.vim
 call plug#begin('~/.vim/plugged')
+
     Plug 'altercation/vim-colors-solarized'
     Plug 'sheerun/vim-polyglot'
 
