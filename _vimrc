@@ -1,7 +1,27 @@
-" Load and init pathogen.
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#helptags()
-call pathogen#infect()
+" Load and init vim-plug.
+runtime plugged/plug.vim
+call plug#begin('~/.vim/plugged')
+    Plug 'altercation/vim-colors-solarized'
+    Plug 'sheerun/vim-polyglot'
+
+    Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'ervandew/supertab'
+    Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-abolish'
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-repeat'
+    Plug 'tpope/vim-projectionist'
+    Plug 'SirVer/ultisnips'
+
+    Plug 'airblade/vim-gitgutter'
+    Plug 'sbdchd/neoformat'
+    Plug 'scrooloose/syntastic'
+
+    Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+    Plug 'yggdroot/indentline', { 'on': 'IndentLinesToggle' }
+
+call plug#end()
 
 " ------------- Detect OS -------------
 if has("win32")
@@ -38,23 +58,21 @@ set nowrap
 " If wrapping is enable, break lines at end of words
 set linebreak
 
-" Allow general yy/p to use system clipboard in mac osx (macvim only)
-"set clipboard=unnamed
-
 " ------------- Theme ----------------
 " Set colorscheme
-if !has('gui_running')
+" if !has('gui_running') "&& g:current_os != 'mac'
     " Compatibility for Terminal
-    let g:solarized_termtrans=1
+    " let g:solarized_termtrans=1
 
-    " Make Solarized use 16 colors for Terminal support
-    let g:solarized_termcolors=256
+    " Make Solarized use 256 colors for Terminal support
+    " let g:solarized_termcolors=16
 
-    "Set background
-    set background=dark
-endif
-set t_Co=256
-colo solarized
+    " Set background
+" endif
+" set t_Cos=256
+syntax enable
+set background=dark
+colorscheme solarized
 
 " ------------- Status Bar ----------------
 " Always show status bar
@@ -68,9 +86,6 @@ set wildmenu
 
 " Enable visual bell. Gets rid of the annoying beep when the <ESC> key is hit.
 set visualbell
-
-"vim-airline settings
-"let g:airline_theme = 'base16'
 
 " ------------- Search ----------------
 " Support incremental search.
@@ -87,22 +102,16 @@ set smartcase
 " Enable file type plugins
 filetype indent plugin on
 
-" Enable syntax highlighting by default.
-syntax on
-
 " ------------- Backup File/Swap File Settings ----------------
 set backupcopy=yes
 set nowritebackup
 
-" ----------- vim-javascript Settings --------------
-let g:javascript_plugin_jsdoc=1
-
-" ------------- Ultisnips Settings ----------------
+" ------------- ultisnips Settings ----------------
 let g:UltiSnipsExpandTrigger="<tab>"                                            
 let g:UltiSnipsJumpForwardTrigger="<tab>"                                       
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"  
 
-" ------------- Ctrl-P Settings ----------------
+" ------------- ctrl-p Settings ----------------
 let g:ctrlp_switch_buffer = 'E'
 let g:ctrlp_tabpage_position = 'c'
 let g:ctrlp_working_path_mode = 'ra'
@@ -113,6 +122,9 @@ let g:ctrlp_show_hidden = 1
 
 " ------------- vim-jsx Settings ----------------
 let g:jsx_ext_required = 0
+
+" ------------- neoformat Settings ----------------
+let g:neoformat_try_formatprg = 1
 
 " ------------- syntastic Settings ----------------
 let g:syntastic_javascript_checkers = ['eslint']
@@ -131,6 +143,17 @@ let g:syntastic_check_on_wq = 0
 " ------------- indentLine Settings ----------------
 let g:indentLine_enabled = 0
 let g:indentLine_char = '│'
+
+" ------------- supertab Settings ----------------
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
+let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
+let g:SuperTabContextDiscoverDiscovery =
+    \ ["&completefunc:<c-x><c-u>", "&omnifunc:<c-x><c-o>"]
+autocmd FileType *
+\ if &omnifunc != '' |
+\   call SuperTabChain(&omnifunc, "<c-p>") |
+\ endif
 
 " ------------- Key mappings ----------------
 " Map CTRL+e to open the in-editor file browser
@@ -171,12 +194,3 @@ else
     map <leader>p "<S-8>p
     vmap <leader>p "<S-8>p
 endif
-
-" Line/selection up/down mappings for mac.
-"if has("mac") || has("macunix")
-"    nmap ∆ <M-j>
-"    nmap ˚ <M-k>
-"    vmap ∆ <M-j>
-"    vmap ˚ <M-k>
-"endif
-
