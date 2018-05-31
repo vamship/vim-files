@@ -37,13 +37,13 @@ endsnippet
 
 snippet teststr "Test for string argument"
 it('should throw an error if invoked without a valid ${1:<param description>}', () => {
-    const error = 'Invalid ${2:<property name>} specified (arg #${3:<arg number>})';
-    _testValueProvider.allButString(${4:''}).forEach(($2) => {
+    const message = 'Invalid ${2:<property name>} (arg #${3:<arg number>})';
+    _testValues.allButString(${4:''}).forEach(($2) => {
         const wrapper = () => {
             $0
         };
 
-        expect(wrapper).to.throw(error);
+        expect(wrapper).to.throw(ArgError, message);
     });
 });
 endsnippet
@@ -51,13 +51,13 @@ endsnippet
 
 snippet testnum "Test for number argument"
 it('should throw an error if invoked without a valid ${1:<param description>}', () => {
-    const error = 'Invalid ${2:<property name>} specified (arg #${3:<arg number>})';
-    _testValueProvider.allButNumber(${4:-1}).forEach(($2) => {
+    const message = 'Invalid ${2:<property name>} (arg #${3:<arg number>})';
+    _testValues.allButNumber(${4:-1}).forEach(($2) => {
         const wrapper = () => {
             $0
         };
 
-        expect(wrapper).to.throw(error);
+        expect(wrapper).to.throw(ArgError, message);
     });
 });
 endsnippet
@@ -65,13 +65,15 @@ endsnippet
 
 snippet testobj "Test for object argument"
 it('should throw an error if invoked without a valid ${1:<param description>}', () => {
-    const error = 'Invalid ${2:<property name>} specified (arg #${3:<arg number>})';
-    _testValueProvider.allButObject().forEach(($2) => {
+    const message = 'Invalid ${2:<property name>} (arg #${3:<arg number>})';
+	const inputs = _testValues.allButObject();
+
+    inputs.forEach(($2) => {
         const wrapper = () => {
             $0
         };
 
-        expect(wrapper).to.throw(error);
+        expect(wrapper).to.throw(ArgError, message);
     });
 });
 endsnippet
@@ -79,13 +81,15 @@ endsnippet
 
 snippet testarr "Test for array argument"
 it('should throw an error if invoked without a valid ${1:<param description>}', () => {
-    const error = 'Invalid ${2:<property name>} specified (arg #${3:<arg number>})';
-    _testValueProvider.allButArray().forEach(($2) => {
+    const message = 'Invalid ${2:<property name>} (arg #${3:<arg number>})';
+    const inputs = _testValues.allButArray();
+
+    inputs.forEach(($2) => {
         const wrapper = () => {
             $0
         };
 
-        expect(wrapper).to.throw(error);
+        expect(wrapper).to.throw(ArgError, message);
     });
 });
 endsnippet
@@ -93,13 +97,15 @@ endsnippet
 
 snippet testfunc "Test for function argument"
 it('should throw an error if invoked without a valid ${1:<param description>}', () => {
-    const error = 'Invalid ${2:<property name>} specified (arg #${3:<arg number>})';
-    _testValueProvider.allButFunction().forEach(($2) => {
+    const message = 'Invalid ${2:<property name>} (arg #${3:<arg number>})';
+    const inputs = _testValues.allButFunction();
+
+    inputs.forEach(($2) => {
         const wrapper = () => {
             $0
         };
 
-        expect(wrapper).to.throw(error);
+        expect(wrapper).to.throw(ArgError, message);
     });
 });
 endsnippet
