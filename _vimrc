@@ -16,11 +16,13 @@ call plug#begin('~/.vim/plugged')
     Plug 'SirVer/ultisnips'
 
     Plug 'airblade/vim-gitgutter'
-    Plug 'sbdchd/neoformat', { 'on': 'NeoFormat' }
+    Plug 'sbdchd/neoformat', { 'on': 'Neoformat' }
     Plug 'scrooloose/syntastic'
 
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
     Plug 'yggdroot/indentline', { 'on': 'IndentLinesToggle' }
+
+    Plug 'digitaltoad/vim-pug'
 
 call plug#end()
 
@@ -58,6 +60,9 @@ set nowrap
 
 " If wrapping is enable, break lines at end of words
 set linebreak
+
+" Show a column marker at the 81st column.
+set colorcolumn=81
 
 " ------------- Theme ----------------
 " Set colorscheme
@@ -121,7 +126,7 @@ let g:ctrlp_tabpage_position = 'c'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_open_new_file = 't'
 let g:ctrlp_match_window = 'max:40'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|docs'
 let g:ctrlp_show_hidden = 1
 
 " ------------- vim-jsx Settings ----------------
@@ -149,15 +154,12 @@ let g:indentLine_enabled = 0
 let g:indentLine_char = '│'
 
 " ------------- supertab Settings ----------------
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
-let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
-let g:SuperTabContextDiscoverDiscovery =
-    \ ["&completefunc:<c-x><c-u>", "&omnifunc:<c-x><c-o>"]
-autocmd FileType *
-\ if &omnifunc != '' |
-\   call SuperTabChain(&omnifunc, "<c-p>") |
-\ endif
+" let g:SuperTabDefaultCompletionType = "<c-p>"
+" let g:SuperTabSetDefaultCompletionType
+" autocmd FileType *
+" \ if &omnifunc != '' |
+" \   call SuperTabChain(&omnifunc, "<c-p>") |
+" \ endif
 
 " ------------- Key mappings ----------------
 " Map CTRL+e to open the in-editor file browser
