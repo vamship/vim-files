@@ -2,7 +2,7 @@
 runtime plugged/plug.vim
 call plug#begin('~/.vim/plugged')
 
-    Plug 'altercation/vim-colors-solarized'
+    Plug 'icymind/NeoSolarized'
     Plug 'sheerun/vim-polyglot'
 
     Plug 'ctrlpvim/ctrlp.vim'
@@ -65,20 +65,9 @@ set linebreak
 set colorcolumn=81
 
 " ------------- Theme ----------------
-" Set colorscheme
-" if !has('gui_running') "&& g:current_os != 'mac'
-    " Compatibility for Terminal
-    " let g:solarized_termtrans=1
-
-    " Make Solarized use 256 colors for Terminal support
-    " let g:solarized_termcolors=16
-
-    " Set background
-" endif
-" set t_Cos=256
 syntax enable
 set background=dark
-colorscheme solarized
+colorscheme NeoSolarized
 
 " ------------- Status Bar ----------------
 " Always show status bar
