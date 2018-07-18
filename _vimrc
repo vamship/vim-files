@@ -1,9 +1,10 @@
-" Load and init vim-plug.
 runtime plugged/plug.vim
+" Load and init vim-plug.
 call plug#begin('~/.vim/plugged')
 
     Plug 'icymind/NeoSolarized'
     Plug 'sheerun/vim-polyglot'
+    Plug 'leafgarland/typescript-vim'
 
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'ervandew/supertab'
@@ -105,9 +106,9 @@ set nowritebackup
 let g:javascript_plugin_jsdoc=1 "Required for jsdoc syntax highlighting
 
 " ------------- ultisnips Settings ----------------
-let g:UltiSnipsExpandTrigger="<tab>"                                            
-let g:UltiSnipsJumpForwardTrigger="<tab>"                                       
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"  
+let g:UltiSnipsExpandTrigger="<c-f>"
+let g:UltiSnipsJumpForwardTrigger="<c-f>"
+let g:UltiSnipsJumpBackwardTrigger="<c-d>"
 
 " ------------- ctrl-p Settings ----------------
 let g:ctrlp_switch_buffer = 'E'
@@ -115,7 +116,7 @@ let g:ctrlp_tabpage_position = 'c'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_open_new_file = 't'
 let g:ctrlp_match_window = 'max:40'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|docs'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|docs\|.tscache'
 let g:ctrlp_show_hidden = 1
 
 " ------------- vim-jsx Settings ----------------
@@ -127,6 +128,8 @@ let g:neoformat_try_formatprg = 1
 " ------------- syntastic Settings ----------------
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exec = 'eslint_d'
+
+let g:syntastic_typescript_checkers = ['tslint']
 
 " For more ignore options, see:
 "  - https://github.com/vim-syntastic/syntastic/wiki/HTML:---tidy#checker-options
@@ -143,12 +146,8 @@ let g:indentLine_enabled = 0
 let g:indentLine_char = '│'
 
 " ------------- supertab Settings ----------------
-" let g:SuperTabDefaultCompletionType = "<c-p>"
-" let g:SuperTabSetDefaultCompletionType
-" autocmd FileType *
-" \ if &omnifunc != '' |
-" \   call SuperTabChain(&omnifunc, "<c-p>") |
-" \ endif
+let g:SuperTabDefaultCompletionType = "<c-p>"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
 " ------------- Key mappings ----------------
 " Map CTRL+e to open the in-editor file browser
