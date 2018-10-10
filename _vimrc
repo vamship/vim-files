@@ -2,9 +2,12 @@ runtime plugged/plug.vim
 " Load and init vim-plug.
 call plug#begin('~/.vim/plugged')
 
-    Plug 'icymind/NeoSolarized'
+    Plug 'mhartington/oceanic-next'
     Plug 'sheerun/vim-polyglot'
-    Plug 'leafgarland/typescript-vim'
+    Plug 'othree/yajs.vim'
+    Plug 'HerringtonDarkholme/yats.vim'
+    Plug 'othree/html5.vim'
+    Plug 'mxw/vim-jsx'
 
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'ervandew/supertab'
@@ -31,7 +34,7 @@ call plug#end()
 if has("win32")
     let g:current_os = "win"
 else
-    if system('uname')=~'Darwin'
+    if system('uname') =~ 'Darwin'
         let g:current_os = "mac"
     else
         let g:current_os = "linux"
@@ -67,8 +70,21 @@ set colorcolumn=81
 
 " ------------- Theme ----------------
 syntax enable
-set background=dark
-colorscheme NeoSolarized
+
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+" Or if you have Neovim >= 0.1.5
+if (has("termguicolors"))
+    set termguicolors
+endif
+
+colorscheme OceanicNext
+
+" set background=dark
+" if $ITERM_PROFILE =~ "Solarized Light"
+"     set background=light
+" endif
+" colorscheme NeoSolarized
 
 " ------------- Status Bar ----------------
 " Always show status bar
