@@ -190,6 +190,10 @@ vmap <leader>s y/<C-R>"<CR>
 map <leader>w <ESC>:tabd w<CR>
 imap <leader>w <ESC>:tabd w<CR>
 
+" Use <leader>f to format current buffer
+map <leader>f <ESC>:Neoformat<CR>
+imap <leader>f <ESC>:Neoformat<CR>
+
 " Use <leader>y and <leader>p to copy/paste to/from clipboard
 if g:current_os == "mac"
     map <leader>y :w !pbcopy<CR><CR>
