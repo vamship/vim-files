@@ -118,6 +118,11 @@ filetype indent plugin on
 set backupcopy=yes
 set nowritebackup
 
+" ------------- NeoVim inccommand settings ----------------
+if exists('&inccommand')
+  set inccommand=nosplit
+endif
+
 " ------------- vim-javascript Settings ----------------
 let g:javascript_plugin_jsdoc=1 "Required for jsdoc syntax highlighting
 
