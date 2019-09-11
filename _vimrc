@@ -3,11 +3,11 @@ runtime plugged/plug.vim
 call plug#begin('~/.vim/plugged')
 
     Plug 'mhartington/oceanic-next'
-    Plug 'sheerun/vim-polyglot'
     Plug 'othree/yajs.vim'
     Plug 'HerringtonDarkholme/yats.vim'
     Plug 'othree/html5.vim'
     Plug 'mxw/vim-jsx'
+    Plug 'machakann/vim-highlightedyank'
 
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'ervandew/supertab'
@@ -66,16 +66,16 @@ set nowrap
 set linebreak
 
 " Show a column marker at the 81st column.
-set colorcolumn=81
+" set colorcolumn=81
 
 " ------------- Theme ----------------
 syntax enable
 
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
-" Or if you have Neovim >= 0.1.5
-if (has("termguicolors"))
-    set termguicolors
+if ($COLORTERM =~ "^\\(truecolor\\|24bit\\)$")
+    if (has("termguicolors"))
+        let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+        set termguicolors
+    endif
 endif
 
 colorscheme OceanicNext
