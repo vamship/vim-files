@@ -66,7 +66,7 @@ set nowrap
 set linebreak
 
 " Show a column marker at the 81st column.
-" set colorcolumn=81
+set colorcolumn=81
 
 " ------------- Theme ----------------
 syntax enable
