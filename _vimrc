@@ -3,8 +3,10 @@ runtime plugged/plug.vim
 call plug#begin('~/.vim/plugged')
 
     Plug 'mhartington/oceanic-next'
+    Plug 'altercation/vim-colors-solarized'
     Plug 'othree/yajs.vim'
     Plug 'HerringtonDarkholme/yats.vim'
+
     Plug 'othree/html5.vim'
     Plug 'mxw/vim-jsx'
     Plug 'machakann/vim-highlightedyank'
@@ -17,7 +19,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-projectionist'
-    Plug 'SirVer/ultisnips'
+    " Plug 'SirVer/ultisnips'
 
     Plug 'airblade/vim-gitgutter'
     Plug 'sbdchd/neoformat', { 'on': 'Neoformat' }
