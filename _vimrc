@@ -4,12 +4,12 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'mhartington/oceanic-next'
     Plug 'altercation/vim-colors-solarized'
-    Plug 'othree/yajs.vim'
-    Plug 'HerringtonDarkholme/yats.vim'
 
     Plug 'othree/html5.vim'
-    Plug 'mxw/vim-jsx'
-    Plug 'machakann/vim-highlightedyank'
+    Plug 'pangloss/vim-javascript'
+
+    Plug 'HerringtonDarkholme/yats.vim'
+    Plug 'maxmellon/vim-jsx-pretty'
 
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'ervandew/supertab'
@@ -19,7 +19,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-projectionist'
+
     " Plug 'SirVer/ultisnips'
+    Plug 'machakann/vim-highlightedyank'
 
     Plug 'airblade/vim-gitgutter'
     Plug 'sbdchd/neoformat', { 'on': 'Neoformat' }
@@ -125,13 +127,13 @@ if exists('&inccommand')
   set inccommand=nosplit
 endif
 
-" ------------- vim-javascript Settings ----------------
-let g:javascript_plugin_jsdoc=1 "Required for jsdoc syntax highlighting
-
 " ------------- ultisnips Settings ----------------
 let g:UltiSnipsExpandTrigger="<c-f>"
 let g:UltiSnipsJumpForwardTrigger="<c-f>"
 let g:UltiSnipsJumpBackwardTrigger="<c-d>"
+
+" ------------- vim-jsx-pretty Settings ----------------
+let g:vim_jsx_pretty_colorful_config=1
 
 " ------------- ctrl-p Settings ----------------
 let g:ctrlp_switch_buffer = 'E'
@@ -141,9 +143,6 @@ let g:ctrlp_open_new_file = 't'
 let g:ctrlp_match_window = 'max:40'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|docs\|.tscache'
 let g:ctrlp_show_hidden = 1
-
-" ------------- vim-jsx Settings ----------------
-let g:jsx_ext_required = 0
 
 " ------------- neoformat Settings ----------------
 let g:neoformat_try_formatprg = 1
