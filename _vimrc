@@ -176,7 +176,7 @@ let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
 " ------------- Key mappings ----------------
 " Map CTRL+e to open the in-editor file browser
-map <C-e> <ESC>:lexplore<CR>
+map <C-e> <ESC>:Lexplore<CR>
 map <C-p> <ESC>:CtrlP<CR>
 
 " Switch tabs using CTRL-l or CTRL-h
