@@ -4,16 +4,15 @@ call plug#begin('~/.vim/plugged')
 
     " Themes
     Plug 'mhartington/oceanic-next'
+    Plug 'adrian5/oceanic-next-vim'
     Plug 'glepnir/oceanic-material'
+
     Plug 'altercation/vim-colors-solarized'
+    Plug 'lifepillar/vim-solarized8'
+    Plug 'overcache/NeoSolarized'
 
     " Syntax highlights
-    Plug 'othree/html5.vim'
-    Plug 'pangloss/vim-javascript'
-
-    Plug 'HerringtonDarkholme/yats.vim'
-    Plug 'maxmellon/vim-jsx-pretty'
-
+    Plug 'sheerun/vim-polyglot'
     Plug 'racer-rust/vim-racer'
 
     " Editor features
@@ -89,7 +88,7 @@ if ($COLORTERM =~ "^\\(truecolor\\|24bit\\)$")
     endif
 endif
 
-colorscheme oceanic_material
+colorscheme OceanicNext
 
 " set background=dark
 " if $ITERM_PROFILE =~ "Solarized Light"
