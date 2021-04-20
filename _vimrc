@@ -22,14 +22,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-projectionist'
 
-    " Plug 'SirVer/ultisnips'
     Plug 'machakann/vim-highlightedyank'
 
     Plug 'airblade/vim-gitgutter'
     Plug 'sbdchd/neoformat', { 'on': 'Neoformat' }
     Plug 'scrooloose/syntastic'
 
-    " Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
     Plug 'yggdroot/indentline', { 'on': 'IndentLinesToggle' }
 
     Plug 'racer-rust/vim-racer'
