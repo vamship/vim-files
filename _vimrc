@@ -2,17 +2,27 @@ runtime plugged/plug.vim
 " Load and init vim-plug.
 call plug#begin('~/.vim/plugged')
 
+    " Themes
     Plug 'mhartington/oceanic-next'
     Plug 'glepnir/oceanic-material'
     Plug 'altercation/vim-colors-solarized'
-    Plug 'junegunn/limelight.vim'
 
+    " Syntax highlights
     Plug 'othree/html5.vim'
     Plug 'pangloss/vim-javascript'
 
     Plug 'HerringtonDarkholme/yats.vim'
     Plug 'maxmellon/vim-jsx-pretty'
 
+    Plug 'racer-rust/vim-racer'
+
+    " Editor features
+    Plug 'junegunn/limelight.vim'
+    Plug 'yggdroot/indentline', { 'on': 'IndentLinesToggle' }
+    Plug 'machakann/vim-highlightedyank'
+    Plug 'airblade/vim-gitgutter'
+
+    " Productivity
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'ervandew/supertab'
     Plug 'tpope/vim-commentary'
@@ -22,15 +32,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-projectionist'
 
-    Plug 'machakann/vim-highlightedyank'
-
-    Plug 'airblade/vim-gitgutter'
     Plug 'sbdchd/neoformat', { 'on': 'Neoformat' }
     Plug 'scrooloose/syntastic'
 
-    Plug 'yggdroot/indentline', { 'on': 'IndentLinesToggle' }
 
-    Plug 'racer-rust/vim-racer'
+    " Tools that depend on external services
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 call plug#end()
