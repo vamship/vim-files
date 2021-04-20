@@ -3,7 +3,9 @@ runtime plugged/plug.vim
 call plug#begin('~/.vim/plugged')
 
     Plug 'mhartington/oceanic-next'
+    Plug 'glepnir/oceanic-material'
     Plug 'altercation/vim-colors-solarized'
+    Plug 'junegunn/limelight.vim'
 
     Plug 'othree/html5.vim'
     Plug 'pangloss/vim-javascript'
@@ -27,10 +29,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'sbdchd/neoformat', { 'on': 'Neoformat' }
     Plug 'scrooloose/syntastic'
 
-    Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+    " Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
     Plug 'yggdroot/indentline', { 'on': 'IndentLinesToggle' }
 
-    Plug 'digitaltoad/vim-pug'
+    Plug 'racer-rust/vim-racer'
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 call plug#end()
 
@@ -82,7 +85,7 @@ if ($COLORTERM =~ "^\\(truecolor\\|24bit\\)$")
     endif
 endif
 
-colorscheme OceanicNext
+colorscheme oceanic_material
 
 " set background=dark
 " if $ITERM_PROFILE =~ "Solarized Light"
@@ -173,7 +176,7 @@ let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
 " ------------- Key mappings ----------------
 " Map CTRL+e to open the in-editor file browser
-map <C-e> <ESC>:NERDTree<CR>
+map <C-e> <ESC>:lexplore<CR>
 map <C-p> <ESC>:CtrlP<CR>
 
 " Switch tabs using CTRL-l or CTRL-h
