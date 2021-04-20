@@ -217,3 +217,11 @@ else
     map <leader>p "<S-8>p
     vmap <leader>p "<S-8>p
 endif
+
+" Key mapping for rust auto completion and type definitions
+augroup Racer
+    autocmd!
+    autocmd FileType rust nmap <buffer> gf  <Plug>(rust-def)
+    autocmd FileType rust nmap <buffer> gs  <Plug>(rust-def-vertical)
+    autocmd FileType rust nmap <buffer> gd  <Plug>(rust-doc)
+augroup END
