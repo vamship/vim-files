@@ -19,7 +19,8 @@ call plug#begin('~/.vim/plugged')
 
     " Syntax highlights
     Plug 'sheerun/vim-polyglot'
-    Plug 'racer-rust/vim-racer'
+    "Plug 'racer-rust/vim-racer'
+    Plug 'rust-lang/rust.vim'
 
     " Editor features
     Plug 'junegunn/limelight.vim'
@@ -38,7 +39,7 @@ call plug#begin('~/.vim/plugged')
 
 
     Plug 'ervandew/supertab'
-    " Plug 'sbdchd/neoformat', { 'on': 'Neoformat' }
+    Plug 'sbdchd/neoformat', { 'on': 'Neoformat' }
     " Plug 'scrooloose/syntastic'
 
     " Tools that depend on external services
@@ -159,14 +160,14 @@ let g:ctrlp_tabpage_position = 'c'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_open_new_file = 't'
 let g:ctrlp_match_window = 'max:40'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|docs\|.tscache'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|^docs\|.tscache'
 let g:ctrlp_show_hidden = 1
 
 " ------------- neoformat Settings ----------------
-" let g:neoformat_try_formatprg = 1
+let g:neoformat_try_formatprg = 1
 " Use <leader>f to format current buffer
-" map <leader>f <ESC>:Neoformat<CR>
-" imap <leader>f <ESC>:Neoformat<CR>
+map <leader>f <ESC>:Neoformat<CR>
+imap <leader>f <ESC>:Neoformat<CR>
 
 " ------------- syntastic Settings ----------------
 let g:syntastic_javascript_checkers = ['eslint']
