@@ -32,7 +32,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-projectionist'
-
+    Plug 'jiangmiao/auto-pairs'
 
     Plug 'ervandew/supertab'
     Plug 'sbdchd/neoformat', { 'on': 'Neoformat' }
