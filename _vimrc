@@ -5,13 +5,10 @@ call plug#begin('~/.vim/plugged')
     " Themes
     Plug 'mhartington/oceanic-next'
     " Plug 'adrian5/oceanic-next-vim'
-    Plug 'glepnir/oceanic-material'
-    Plug 'ghifarit53/tokyonight-vim'
-    " Plug 'folke/tokyonight.nvim'
+    " Plug 'glepnir/oceanic-material'
 
     " Status lines
     Plug 'vim-airline/vim-airline'
-    " Plug 'hoob3rt/lualine.nvim'
 
     Plug 'altercation/vim-colors-solarized'
     Plug 'lifepillar/vim-solarized8'
@@ -19,7 +16,6 @@ call plug#begin('~/.vim/plugged')
 
     " Syntax highlights
     Plug 'sheerun/vim-polyglot'
-    "Plug 'racer-rust/vim-racer'
     Plug 'rust-lang/rust.vim'
 
     " Editor features
@@ -40,7 +36,6 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'ervandew/supertab'
     Plug 'sbdchd/neoformat', { 'on': 'Neoformat' }
-    " Plug 'scrooloose/syntastic'
 
     " Tools that depend on external services
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
@@ -96,6 +91,7 @@ if ($COLORTERM =~ "^\\(truecolor\\|24bit\\)$")
         set termguicolors
     endif
 endif
+
 colorscheme OceanicNext
 " colorscheme tokyonight
 " let g:airline_theme = "OceanicNext"
