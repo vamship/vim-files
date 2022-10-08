@@ -80,6 +80,13 @@ set linebreak
 " Show a column marker at the 81st column.
 set colorcolumn=81
 
+" Set max width to 80 characters
+set tw=80
+
+" Enable automatic text wrapping at text width
+set fo-=l
+set fo+=t
+
 " ------------- Theme ----------------
 syntax enable
 
