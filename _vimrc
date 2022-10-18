@@ -4,15 +4,12 @@ call plug#begin('~/.vim/plugged')
 
     " Themes
     Plug 'mhartington/oceanic-next'
-    " Plug 'adrian5/oceanic-next-vim'
-    " Plug 'glepnir/oceanic-material'
-
-    " Status lines
-    Plug 'vim-airline/vim-airline'
-
     Plug 'altercation/vim-colors-solarized'
     Plug 'lifepillar/vim-solarized8'
     Plug 'overcache/NeoSolarized'
+
+    " Status lines
+    Plug 'vim-airline/vim-airline'
 
     " Syntax highlights
     Plug 'sheerun/vim-polyglot'
@@ -32,9 +29,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-projectionist'
-    Plug 'jiangmiao/auto-pairs'
+    Plug 'voldikss/vim-floaterm'
 
+    Plug 'jiangmiao/auto-pairs'
     Plug 'ervandew/supertab'
+
     Plug 'sbdchd/neoformat', { 'on': 'Neoformat' }
 
     " Tools that depend on external services
@@ -195,6 +194,20 @@ let g:indentLine_char = '│'
 " ------------- supertab Settings ----------------
 let g:SuperTabDefaultCompletionType = "<c-p>"
 let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+
+" ------------- Floaterm Settings ----------------
+let g:floaterm_autoclose = 1
+let g:floaterm_autohide = 1
+let g:floaterm_wintype = 'vsplit'
+let g:floaterm_width = 0.5
+
+tnoremap <leader><ESC> <C-\><C-n><C-w><C-w>
+tnoremap <C-x> <C-\><C-n><ESC>:FloatermHide <CR>
+tnoremap <C-n> <C-\><C-n><ESC>:FloatermNew <CR>
+tnoremap <C-l> <C-\><C-n><ESC>:FloatermNext <CR>
+tnoremap <C-h> <C-\><C-n><ESC>:FloatermPrev <CR>
+map <leader>g :FloatermSend<CR>
+map <leader>t :FloatermToggle<CR>
 
 " ------------- Key mappings ----------------
 " Map CTRL+e to open the in-editor file browser
