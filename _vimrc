@@ -148,11 +148,6 @@ if exists('&inccommand')
   set inccommand=nosplit
 endif
 
-" ------------- ultisnips Settings ----------------
-let g:UltiSnipsExpandTrigger="<c-f>"
-let g:UltiSnipsJumpForwardTrigger="<c-f>"
-let g:UltiSnipsJumpBackwardTrigger="<c-d>"
-
 " ------------- vim-jsx-pretty Settings ----------------
 let g:vim_jsx_pretty_colorful_config=1
 
@@ -170,22 +165,6 @@ let g:neoformat_try_formatprg = 1
 " Use <leader>f to format current buffer
 map <leader>f <ESC>:Neoformat<CR>
 imap <leader>f <ESC>:Neoformat<CR>
-
-" ------------- syntastic Settings ----------------
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = 'eslint_d'
-
-let g:syntastic_typescript_checkers = ['tslint']
-
-" For more ignore options, see:
-"  - https://github.com/vim-syntastic/syntastic/wiki/HTML:---tidy#checker-options
-"  -http://stackoverflow.com/questions/32669248/disable-syntasic-html-tidy-checker-for-a-file
-let g:syntastic_html_tidy_ignore_errors=['<link> proprietary attribute "sizes"']
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 " ------------- indentLine Settings ----------------
 let g:indentLine_enabled = 0
@@ -248,11 +227,3 @@ else
     map <leader>p "<S-8>p
     vmap <leader>p "<S-8>p
 endif
-
-" Key mapping for rust auto completion and type definitions
-augroup Racer
-    autocmd!
-    autocmd FileType rust nmap <buffer> gf  <Plug>(rust-def)
-    autocmd FileType rust nmap <buffer> gs  <Plug>(rust-def-vertical)
-    autocmd FileType rust nmap <buffer> gd  <Plug>(rust-doc)
-augroup END
