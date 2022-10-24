@@ -174,6 +174,9 @@ let g:indentLine_char = '│'
 let g:SuperTabDefaultCompletionType = "<c-p>"
 let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
+" ------------- Autopairs Settings ----------------
+let g:AutoPairsFlyMode = 1
+
 " ------------- Floaterm Settings ----------------
 let g:floaterm_autoclose = 1
 let g:floaterm_autohide = 1
