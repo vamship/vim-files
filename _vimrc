@@ -32,13 +32,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'voldikss/vim-floaterm'
 
     Plug 'jiangmiao/auto-pairs'
-    Plug 'ervandew/supertab'
-
     Plug 'sbdchd/neoformat', { 'on': 'Neoformat' }
+    Plug 'github/copilot.vim'
 
     " Tools that depend on external services
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-
 call plug#end()
 
 " ------------- Detect OS -------------
@@ -176,6 +174,10 @@ let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
 " ------------- Autopairs Settings ----------------
 let g:AutoPairsFlyMode = 1
+let g:AutoPairsShortcutToggle = '<leader>]'
+let g:AutoPairsShortcutJump = '<c-.>'
+let g:AutoPairsShortcutFastWrap = '<c-/>'
+let g:AutoPairsShortcutBackInsert = '<c-,>'
 
 " ------------- Floaterm Settings ----------------
 let g:floaterm_autoclose = 1
@@ -230,3 +232,8 @@ else
     map <leader>p "<S-8>p
     vmap <leader>p "<S-8>p
 endif
+
+" Github Copilot settings
+imap <silent><script><expr> ‘ copilot#Next()
+imap <silent><script><expr> “ copilot#Previous()
+imap <silent><script><expr> « copilot#Dismiss()
