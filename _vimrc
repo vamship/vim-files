@@ -1,7 +1,6 @@
 runtime plugged/plug.vim
 " Load and init vim-plug.
 call plug#begin('~/.vim/plugged')
-
     " Themes
     Plug 'mhartington/oceanic-next'
     Plug 'altercation/vim-colors-solarized'
