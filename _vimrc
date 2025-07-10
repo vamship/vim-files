@@ -186,20 +186,6 @@ let g:AutoPairsShortcutJump = '<c-.>'
 let g:AutoPairsShortcutFastWrap = '<c-9>'
 let g:AutoPairsShortcutBackInsert = '<c-,>'
 
-" ------------- Floaterm Settings ----------------
-let g:floaterm_autoclose = 1
-let g:floaterm_autohide = 1
-let g:floaterm_wintype = 'vsplit'
-let g:floaterm_width = 0.5
-
-tnoremap <leader><ESC> <C-\><C-n><C-w><C-w>
-tnoremap <C-x> <C-\><C-n><ESC>:FloatermHide <CR>
-tnoremap <C-n> <C-\><C-n><ESC>:FloatermNew <CR>
-tnoremap <C-l> <C-\><C-n><ESC>:FloatermNext <CR>
-tnoremap <C-h> <C-\><C-n><ESC>:FloatermPrev <CR>
-map <leader>g :FloatermSend<CR>
-map <leader>t :FloatermToggle<CR>
-
 " ------------- Key mappings ----------------
 " Map CTRL+e to open the in-editor file browser
 map <C-e> <ESC>:Lexplore<CR>
