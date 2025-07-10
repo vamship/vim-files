@@ -183,6 +183,10 @@ let g:AutoPairsShortcutFastWrap = '<c-9>'
 let g:AutoPairsShortcutBackInsert = '<c-,>'
 
 " ------------- Key mappings ----------------
+" Useful mapping for iterative vimrc edits
+map <leader>vimrc :tabe ~/.vimrc<cr>
+autocmd bufwritepost .vimrc source $MYVIMRC
+
 " Map CTRL+e to open the in-editor file browser
 map <C-e> <ESC>:Lexplore<CR>
 map <C-p> <ESC>:CtrlP<CR>
