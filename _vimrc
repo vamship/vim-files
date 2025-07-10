@@ -33,10 +33,18 @@ call plug#begin('~/.vim/plugged')
     Plug 'jiangmiao/auto-pairs'
     Plug 'sbdchd/neoformat', { 'on': 'Neoformat' }
     Plug 'github/copilot.vim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'CopilotC-Nvim/CopilotChat.nvim'
 
     " Tools that depend on external services
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
+
+lua << EOF
+require("CopilotChat").setup {
+  -- See Configuration section for options
+}
+EOF
 
 " ------------- Detect OS -------------
 if has("win32")
