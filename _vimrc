@@ -175,10 +175,6 @@ imap <leader>f <ESC>:Neoformat<CR>
 let g:indentLine_enabled = 0
 let g:indentLine_char = '│'
 
-" ------------- supertab Settings ----------------
-let g:SuperTabDefaultCompletionType = "<c-p>"
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
-
 " ------------- Autopairs Settings ----------------
 let g:AutoPairsFlyMode = 1
 let g:AutoPairsShortcutToggle = '<leader>]'
