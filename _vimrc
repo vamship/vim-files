@@ -176,7 +176,7 @@ let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 let g:AutoPairsFlyMode = 1
 let g:AutoPairsShortcutToggle = '<leader>]'
 let g:AutoPairsShortcutJump = '<c-.>'
-let g:AutoPairsShortcutFastWrap = '<c-/>'
+let g:AutoPairsShortcutFastWrap = '<c-9>'
 let g:AutoPairsShortcutBackInsert = '<c-,>'
 
 " ------------- Floaterm Settings ----------------
