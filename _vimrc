@@ -187,6 +187,10 @@ let g:AutoPairsShortcutBackInsert = '<c-,>'
 map <leader>vimrc :tabe ~/.vimrc<cr>
 autocmd bufwritepost .vimrc source $MYVIMRC
 
+" Map <leader>r to run selected text/lines as a shell command
+nmap <leader>r <ESC>:.w !zsh<CR>
+vmap <leader>r <ESC>"cy<ESC>:execute '!'@c<CR>
+
 " Map CTRL+e to open the in-editor file browser
 map <C-e> <ESC>:Lexplore<CR>
 map <C-p> <ESC>:CtrlP<CR>
