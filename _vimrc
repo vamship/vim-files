@@ -34,16 +34,19 @@ call plug#begin('~/.vim/plugged')
     Plug 'sbdchd/neoformat', { 'on': 'Neoformat' }
     Plug 'github/copilot.vim'
     Plug 'nvim-lua/plenary.nvim'
-    Plug 'CopilotC-Nvim/CopilotChat.nvim'
+    Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'olimorris/codecompanion.nvim'
 
     " Tools that depend on external services
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
 
 lua << EOF
-require("CopilotChat").setup {
-  -- See Configuration section for options
-}
+require("codecompanion").setup({
+opts = {
+    log_level = "TRACE", -- or "TRACE"
+  }
+})
 EOF
 
 " ------------- Detect OS -------------
@@ -237,3 +240,6 @@ endif
 imap <silent><script><expr> ‘ copilot#Next()
 imap <silent><script><expr> “ copilot#Previous()
 imap <silent><script><expr> « copilot#Dismiss()
+
+" CodeCompanion settings
+map <leader>cc <ESC>:CodeCompanionChat Toggle<CR>
