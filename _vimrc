@@ -82,7 +82,7 @@ set nowrap
 set linebreak
 
 " Show a column marker at the 81st column.
-set colorcolumn=81
+set colorcolumn=81,101
 
 " Set max width to 80 characters
 set tw=80
@@ -90,6 +90,9 @@ set tw=80
 " Enable automatic text wrapping at text width
 set fo-=l
 set fo+=t
+
+" Force all vertical splits to open to the right.
+set splitright
 
 " ------------- Theme ----------------
 syntax enable
