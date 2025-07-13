@@ -15,7 +15,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'rust-lang/rust.vim'
 
     " Editor features
-    Plug 'junegunn/limelight.vim'
     Plug 'yggdroot/indentline', { 'on': 'IndentLinesToggle' }
     Plug 'machakann/vim-highlightedyank'
     Plug 'airblade/vim-gitgutter'
@@ -28,16 +27,40 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-projectionist'
-
     Plug 'jiangmiao/auto-pairs'
     Plug 'sbdchd/neoformat', { 'on': 'Neoformat' }
+
+    " Rendering tools
+    Plug 'junegunn/limelight.vim'
+    Plug 'MeanderingProgrammer/render-markdown.nvim'
+    Plug 'nvim-tree/nvim-web-devicons'
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
     Plug 'github/copilot.vim'
     Plug 'nvim-lua/plenary.nvim'
 
-    " Tools that depend on external services
-    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
 
+lua << EOF
+require('render-markdown').setup({
+  heading = {
+    right_pad = 1,
+    icons =  { '☰' }
+  },
+  checkbox = {
+    checked = { icon = '✔ ' },
+    custom = {
+      custom = {
+        raw = '[~]',
+        rendered = '✘ ',
+        highlight = 'RenderMarkdownUnchecked',
+        scope_highlight = '@markup.strikethrough'
+      },
+    },
+  },
+})
+
+})
+EOF
 
 " ------------- Detect OS -------------
 if has("win32")
@@ -149,9 +172,6 @@ if exists('&inccommand')
   set inccommand=nosplit
 endif
 
-" ------------- vim-jsx-pretty Settings ----------------
-let g:vim_jsx_pretty_colorful_config=1
-
 " ------------- ctrl-p Settings ----------------
 let g:ctrlp_switch_buffer = 'E'
 let g:ctrlp_tabpage_position = 'c'
@@ -167,21 +187,29 @@ let g:neoformat_try_formatprg = 1
 map <leader>f <ESC>:Neoformat<CR>
 imap <leader>f <ESC>:Neoformat<CR>
 
-" ------------- indentLine Settings ----------------
+" ------------- indentline Settings ----------------
 let g:indentLine_enabled = 0
 let g:indentLine_char = '│'
 
-" ------------- Autopairs Settings ----------------
+" ------------- auto-pairs Settings ----------------
 let g:AutoPairsFlyMode = 1
 let g:AutoPairsShortcutToggle = '<leader>]'
 let g:AutoPairsShortcutJump = '<c-.>'
 let g:AutoPairsShortcutFastWrap = '<c-9>'
 let g:AutoPairsShortcutBackInsert = '<c-,>'
 
+" ------------- copilot Settings ----------------
+imap <silent><script><expr> ‘ copilot#Next()
+imap <silent><script><expr> “ copilot#Previous()
+imap <silent><script><expr> « copilot#Dismiss()
+
+" ------------- render-markdown Settings ----------------
+map <leader>md <ESC>:RenderMarkdown toggle<CR>
+
 " ------------- Key mappings ----------------
 " Useful mapping for iterative vimrc edits
-map <leader>vimrc :tabe ~/.vimrc<cr>
-autocmd bufwritepost .vimrc source $MYVIMRC
+map <leader>evi :tabe ~/.vimrc<cr>
+map <leader>vimrc :source $MYVIMRC<cr>
 
 " Map <leader>r to run selected text/lines as a shell command
 nmap <leader>r <ESC>:.w !zsh<CR>
@@ -225,11 +253,3 @@ else
     map <leader>p "<S-8>p
     vmap <leader>p "<S-8>p
 endif
-
-" Github Copilot settings
-imap <silent><script><expr> ‘ copilot#Next()
-imap <silent><script><expr> “ copilot#Previous()
-imap <silent><script><expr> « copilot#Dismiss()
-
-" CodeCompanion settings
-map <leader>cc <ESC>:CodeCompanionChat Toggle<CR>
