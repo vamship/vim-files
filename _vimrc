@@ -6,9 +6,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'altercation/vim-colors-solarized'
     Plug 'lifepillar/vim-solarized8'
     Plug 'overcache/NeoSolarized'
+    Plug 'navarasu/onedark.nvim'
 
     " Status lines
     Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
 
     " Syntax highlights
     Plug 'sheerun/vim-polyglot'
@@ -165,16 +167,7 @@ if ($COLORTERM =~ "^\\(truecolor\\|24bit\\)$")
     endif
 endif
 
-colorscheme OceanicNext
-" colorscheme tokyonight
-" let g:airline_theme = "OceanicNext"
-
-" set background=dark
-" if $ITERM_PROFILE =~ "Solarized Light"
-"     set background=light
-" endif
-" colorscheme NeoSolarized
-
+colorscheme OneDark
 " ------------- Status Bar ----------------
 "  Set encoding to UTF-8 (default on nvim)
 set encoding=utf-8
