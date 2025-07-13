@@ -42,6 +42,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'MunifTanjim/nui.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': 'make' }
+    Plug 'ravitemer/mcphub.nvim', { 'do': 'npm install -g mcp-hub@latest' }
 
 call plug#end()
 
@@ -79,6 +80,26 @@ require('avante').setup({
   windows = {
     input = {
       height = 10
+    }
+  },
+  -- system_prompt as function ensures LLM always has latest MCP server state
+  -- This is evaluated for every message, even in existing chats
+  system_prompt = function()
+      local hub = require("mcphub").get_hub_instance()
+      return hub and hub:get_active_servers_prompt() or ""
+  end,
+  -- Using function prevents requiring mcphub before it's loaded
+  custom_tools = function()
+      return {
+          require("mcphub.extensions.avante").mcp_tool(),
+      }
+  end,
+})
+
+require('mcphub').setup({
+  extensions = {
+    avante = {
+      make_slash_commands = true, -- make /slash commands from MCP server prompts
     }
   }
 })
