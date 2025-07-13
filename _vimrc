@@ -28,7 +28,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-projectionist'
-    Plug 'voldikss/vim-floaterm'
 
     Plug 'jiangmiao/auto-pairs'
     Plug 'sbdchd/neoformat', { 'on': 'Neoformat' }
