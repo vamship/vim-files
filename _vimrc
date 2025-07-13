@@ -33,20 +33,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'sbdchd/neoformat', { 'on': 'Neoformat' }
     Plug 'github/copilot.vim'
     Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-treesitter/nvim-treesitter'
-    Plug 'olimorris/codecompanion.nvim'
 
     " Tools that depend on external services
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
 
-lua << EOF
-require("codecompanion").setup({
-opts = {
-    log_level = "TRACE", -- or "TRACE"
-  }
-})
-EOF
 
 " ------------- Detect OS -------------
 if has("win32")
