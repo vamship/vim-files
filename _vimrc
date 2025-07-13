@@ -35,8 +35,13 @@ call plug#begin('~/.vim/plugged')
     Plug 'MeanderingProgrammer/render-markdown.nvim'
     Plug 'nvim-tree/nvim-web-devicons'
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+    " AI Support
     Plug 'github/copilot.vim'
+    Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+    Plug 'MunifTanjim/nui.nvim'
     Plug 'nvim-lua/plenary.nvim'
+    Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': 'make' }
 
 call plug#end()
 
@@ -59,6 +64,23 @@ require('render-markdown').setup({
   },
 })
 
+require('avante').setup({
+  provider = 'copilot',
+  hints = { enabled = false },
+  mappings = {
+    sidebar = {
+      switch_windows = '<M-Tab>',
+      reverse_switch_windows = '<C-Tab>',
+    },
+    submit = {
+        insert = '<C-Enter>',
+    }
+  },
+  windows = {
+    input = {
+      height = 10
+    }
+  }
 })
 EOF
 
