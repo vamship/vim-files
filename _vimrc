@@ -242,7 +242,10 @@ imap <silent><script><expr> « copilot#Dismiss()
 " ------------- render-markdown Settings ----------------
 map <leader>md <ESC>:RenderMarkdown toggle<CR>
 
-" ------------- Key mappings ----------------
+" ------------- avante Settings ----------------
+map <leader>ax <ESC>:AvanteClear<CR>
+
+" ------------- Generic Key mappings ----------------
 " Useful mapping for iterative vimrc edits
 map <leader>evi :tabe ~/.vimrc<cr>
 map <leader>vimrc :source $MYVIMRC<cr>
