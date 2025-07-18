@@ -13,7 +13,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline-themes'
 
     " Syntax highlights
-    Plug 'sheerun/vim-polyglot'
+    " Plug 'sheerun/vim-polyglot'
     Plug 'rust-lang/rust.vim'
 
     " Editor features
