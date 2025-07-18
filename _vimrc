@@ -214,7 +214,7 @@ let g:ctrlp_tabpage_position = 'c'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_open_new_file = 't'
 let g:ctrlp_match_window = 'max:40'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|^docs\|.tscache\|.venv'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|^docs\|.tscache\|.venv\|working'
 let g:ctrlp_show_hidden = 1
 
 " ------------- neoformat Settings ----------------
